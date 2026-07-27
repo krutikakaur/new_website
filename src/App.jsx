@@ -14,19 +14,20 @@ export default function App() {
   // Tracks whether the popup modal is currently open or closed.
   // `onClickOn` = the current value (true/false).
   // `setonClickOn` = the function we call to change that value.
-  const [onClickOn, setonClickOn] = useState(false);
+  const [onClickOn, setonClickOn] = useState(false);//set to null
 
   // Called by Room whenever the user clicks a clickable object.
   // We just flip the modal open.
-  const handleOpenPop = () => {
-    setonClickOn(true);
+  const handleOpenPop = () => {//pass itemName 
+    setonClickOn(true);//store itemname
   };
 
   // Called when the user clicks the "Close" button on the modal.
   const handleClosePop = () => {
-    setonClickOn(false);
+    setonClickOn(false);//set null
   };
 
+  ///add a const for popup data with all popup info, create var for the current content, add that to the html contnet (ie, .title, .descrip.)
   return (
     // Outer wrapper — fills the entire browser window.
     // `position: 'relative'` is important: it lets the modal below
@@ -34,7 +35,7 @@ export default function App() {
     // THIS div, instead of relative to the whole page.
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
 
-      {/* The 3D viewport.*/}
+      {/* The 3D viewport. Canvas used to actually be able ot create a 3D popup*/}
       <Canvas shadows camera={{ position: [0, 2, 5], fov: 45 }}>
         {/* Render the room, and pass down our "open popup" function so
             Room can call it whenever something gets clicked inside. */}
