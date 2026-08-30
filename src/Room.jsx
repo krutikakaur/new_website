@@ -127,7 +127,7 @@ const { scene } = useGLTF('./room_offical.glb')
     const target = getMatchedTarget(e.object);
 
     if (target && onPopClick) {
-      onPopClick();
+      onPopClick(target); //send current item (target) to trigger popup
     }
   };
 
