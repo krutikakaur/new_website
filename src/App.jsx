@@ -20,7 +20,7 @@ const popUpData = { //store the possible clickable items and their descriptions
   
 export default function App() {
 
-  const [SelectedItem, setSelectedItem] = useState(null);//check which and if and item is selected, initally set to null
+  const [selectedItem, setSelectedItem] = useState(null);//check which and if and item is selected, initally set to null
 
   const handleOpenPop = (itemName) => {//pass itemName 
     setSelectedItem(itemName);//store itemname
