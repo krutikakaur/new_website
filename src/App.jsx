@@ -3,12 +3,6 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Room from './Room';
 
-// ============================================================================
-// APP COMPONENT
-// This is the top-level page. It sets up the 3D <Canvas> (the "viewport"
-// that everything 3D gets drawn into) and also handles the popup/modal
-// that appears when someone clicks a portfolio item inside the Room.
-// ============================================================================
 export default function App() {
 
   // Tracks whether the popup modal is currently open or closed.
@@ -102,5 +96,5 @@ const buttonStyle = {
   color: '#fff',
   border: 'none',
   borderRadius: '6px',
-  cursor: 'pointer',
+  cursor: 'pointer'
 };
