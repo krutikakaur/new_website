@@ -5,8 +5,7 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
 export default function Room({ onPopClick }) {
   // Load 3D model
-  const { scene } = useGLTF('/room_offical.glb');
-
+const { scene } = useGLTF('./room_offical.glb')
   // Track hover state and timing
   const isLoaded = useRef(false);
   const currentHoveredItem = useRef(null);
