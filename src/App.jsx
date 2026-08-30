@@ -3,27 +3,39 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Room from './Room';
 
+const popUpData = { //store the possible clickable items and their descriptions
+  miffy: {
+    title: 'Personal Art Projects!',
+    description: 'filler' },
+  bookshelf: {
+    title: 'Resume/Reach Out!',
+    description: 'filler' },
+  sticky_note: {
+    title: 'About Me',
+    description: 'filler' ),
+  cube068: {
+    title: 'Technical Projects',
+    description: 'filler' },
+  };
+  
 export default function App() {
 
-  // Tracks whether the popup modal is currently open or closed.
-  // `onClickOn` = the current value (true/false).
-  // `setonClickOn` = the function we call to change that value.
-  const [onClickOn, setonClickOn] = useState(false);//set to null
+  const [SelectedItem, setSelectedItem] = useState(null);//check which and if and item is selected, initally set to null
 
-  // Called by Room whenever the user clicks a clickable object.
-  // We just flip the modal open.
-  const handleOpenPop = () => {//pass itemName 
-    setonClickOn(true);//store itemname
+  const handleOpenPop = (itemName) => {//pass itemName 
+    setSelectedItem(itemName);//store itemname
   };
 
   // Called when the user clicks the "Close" button on the modal.
   const handleClosePop = () => {
-    setonClickOn(false);//set null
+    setSelectedItem(null);//set null
   };
 
-  ///add a const for popup data with all popup info, create var for the current content, add that to the html contnet (ie, .title, .descrip.)
+  const currentItem = popUpData[selectedItem] || {
+    title: 'None Selected',
+    description: 'not found' };
+  
   return (
-    // Outer wrapper — fills the entire browser window.
     // `position: 'relative'` is important: it lets the modal below
     // (which uses `position: 'absolute'`) position itself relative to
     // THIS div, instead of relative to the whole page.
@@ -36,18 +48,16 @@ export default function App() {
         <Room onPopClick={handleOpenPop} />
       </Canvas>
 
-      {/* The popup modal — only rendered at all when `onClickOn` is true.
-          This is a common React pattern: `condition && <Thing />` means
-          "only show <Thing /> if condition is true". */}
-      {onClickOn && (
+      {/* The popup modal — only rendered at all when `selectedItem` is not null. */}
+      {selectedItem && (
         <div style={overlayStyle}>
           {/* The actual modal box itself */}
           <div style={modalStyle}>
-            <h2>Featured Art & Projects</h2>
-            <p>Here is your artwork gallery or project summary!</p>
+            <h2>{currentItem.title}</h2>
+            <p>{currentItem.description}</p>
 
-            {/* Clicking this button closes the modal by calling our
-                handleClosePop function, which sets onClickOn back to false */}
+            {/* Clicking this button closes the modal by calling
+                handleClosePop function, which sets selectedItem back to null */}
             <button onClick={handleClosePop} style={buttonStyle}>
               Close
             </button>
