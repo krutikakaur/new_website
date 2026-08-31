@@ -42,7 +42,6 @@ export default function App() {
       window.location.href = pageUrl;
     } 
   };
-  };
   
 return (
   <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
@@ -80,6 +79,7 @@ return (
     )}
   </div>
 );
+};
 
 // Covers the entire screen with a dark, semi-transparent overlay,
 // and centers whatever's inside it (the modal box) both horizontally
