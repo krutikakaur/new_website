@@ -38,10 +38,11 @@ export default function App() {
     description: 'not found' };
   
   const handleGoToPage = (pageUrl) => {
-    if (pageUrl) {
-      window.location.href = pageUrl;
-    } 
-  };
+  if (pageUrl) {
+    // Uses window.location.origin + current path structure to prevent root-domain stripping
+    window.location.href = new URL(pageUrl, window.location.href).href;
+  } 
+};
   
 return (
   <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
