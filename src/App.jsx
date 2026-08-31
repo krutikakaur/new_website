@@ -79,7 +79,7 @@ return (
     )}
   </div>
 );
-};
+}
 
 // Covers the entire screen with a dark, semi-transparent overlay,
 // and centers whatever's inside it (the modal box) both horizontally
@@ -110,15 +110,6 @@ const modalStyle = {
   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
 };
 
-const buttonStyle = {
-  marginTop: '1.5rem',
-  padding: '0.5rem 1.5rem',
-  backgroundColor: '#ff4b5c',
-  color: '#fff',
-  border: 'none',
-  borderRadius: '6px',
-  cursor: 'pointer'
-};
 //styling for action button
 const actionButtonStyle = {
   padding: '0.5rem 1.5rem',
@@ -140,4 +131,11 @@ const closeButtonStyle = {
   borderRadius: '6px',
   cursor: 'pointer',
   fontWeight: '600',
+};
+
+const buttonContainerStyle = {
+  marginTop: '1.5rem',
+  display: 'flex',
+  gap: '10px',
+  justifyContent: 'center',
 };
