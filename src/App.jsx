@@ -43,48 +43,42 @@ export default function App() {
     }
   };
   
-  return (
-    // `position: 'relative'` is important: it lets the modal below
-    // (which uses `position: 'absolute'`) position itself relative to
-    // THIS div, instead of relative to the whole page.
-    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+return (
+  <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
 
-      {/* The 3D viewport. Canvas used to actually be able ot create a 3D popup*/}
-      <Canvas shadows camera={{ position: [0, 2, 5], fov: 45 }}>
-        {/* Render the room, and pass down our "open popup" function so
-            Room can call it whenever something gets clicked inside. */}
-        <Room onPopClick={handleOpenPop} />
-      </Canvas>
+    {/* The 3D viewport */}
+    <Canvas shadows camera={{ position: [0, 2, 5], fov: 45 }}>
+      <Room onPopClick={handleOpenPop} />
+    </Canvas>
 
-      {/* The popup modal — only rendered at all when `selectedItem` is not null. */}
-      {selectedItem && (
-        <div style={overlayStyle}>
-          {/* The actual modal box itself */}
-          <div style={modalStyle}>
-            <h2>{currentItem.title}</h2>
-            <p>{currentItem.description}</p>
-            {/*handle going to a diff page*/}
-            <div style={buttonContainerStyle}>
-              {currentItem.page && (
-                <button
-                  onClick={() => handleGoToPage(currentItem.page)}
-                  style={actionButtonStyle}
-                >Visit Page
-                </button>
-              )}
+    {/* The popup modal — rendered only when `selectedItem` is not null */}
+    {selectedItem && (
+      <div style={overlayStyle} onClick={handleClosePop}>
+        {/* stopPropagation prevents clicking inside the card from closing it */}
+        <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
+          <h2>{currentItem.title}</h2>
+          <p style={{ marginTop: '1rem', lineHeight: '1.6', color: '#cbd5e1' }}>
+            {currentItem.description}
+          </p>
 
-            {/* Clicking this button closes the modal by calling
-                handleClosePop function, which sets selectedItem back to null */}
-            <button onClick={handleClosePop} style={buttonStyle}>
+          <div style={buttonContainerStyle}>
+            {currentItem.page && (
+              <button
+                onClick={() => handleGoToPage(currentItem.page)}
+                style={actionButtonStyle}
+              >
+                Visit Page
+              </button>
+            )}
+            <button onClick={handleClosePop} style={closeButtonStyle}>
               Close
             </button>
           </div>
         </div>
-      )};
-
-    </div>
-  );
-}
+      </div>
+    )}
+  </div>
+);
 
 // Covers the entire screen with a dark, semi-transparent overlay,
 // and centers whatever's inside it (the modal box) both horizontally
