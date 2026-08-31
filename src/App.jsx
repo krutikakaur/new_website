@@ -39,8 +39,8 @@ export default function App() {
   
   const handleGoToPage = (pageUrl) => {
   if (pageUrl) {
-    // Uses window.location.origin + current path structure to prevent root-domain stripping
-    window.location.href = new URL(pageUrl, window.location.href).href;
+    // Opens the target page in a new browser tab without replacing 3D scene
+    window.open(pageUrl, '_blank', 'noopener,noreferrer');
   } 
 };
   
