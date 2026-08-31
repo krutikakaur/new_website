@@ -38,11 +38,10 @@ export default function App() {
     description: 'not found' };
   
   const handleGoToPage = (pageUrl) => {
-  if (pageUrl) {
-    // Opens the target page in a new browser tab without replacing 3D scene
-    window.open(pageUrl, '_blank', 'noopener,noreferrer');
-  } 
-};
+    if (pageUrl) {
+      window.location.href = pageUrl;
+    } 
+  };
   
 return (
   <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
