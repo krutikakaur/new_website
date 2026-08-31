@@ -6,16 +6,18 @@ import Room from './Room';
 const popUpData = { //store the possible clickable items and their descriptions
   miffy: {
     title: 'Personal Art Projects!',
-    description: 'filler' },
+    description: 'filler',
+    page: "/art.html" },
   bookshelf: {
     title: 'Resume/Reach Out!',
-    description: 'filler' },
+    description: 'filler'},
   sticky_note: {
     title: 'About Me',
-    description: 'filler' },
+    description: 'filler'},
   cube068: {
     title: 'Technical Projects',
-    description: 'filler' },
+    description: 'filler',
+    page: "/projects.html"},
   };
   
 export default function App() {
@@ -34,6 +36,12 @@ export default function App() {
   const currentItem = popUpData[selectedItem] || {
     title: 'None Selected',
     description: 'not found' };
+  
+  const handleGoToPage = (pageUrl) => {
+    if (pageUrl) {
+      window.location.href = pageUrl;
+    }
+  };
   
   return (
     // `position: 'relative'` is important: it lets the modal below
@@ -55,6 +63,15 @@ export default function App() {
           <div style={modalStyle}>
             <h2>{currentItem.title}</h2>
             <p>{currentItem.description}</p>
+            {/*handle going to a diff page*/}
+            <div style={buttonContainerStyle}>
+              {currentItem.page && (
+                <button
+                  onClick={() => handleGoToPage(currentItem.page)}
+                  style={actionButtonStyle}
+                >Visit Page
+                </button>
+              )}
 
             {/* Clicking this button closes the modal by calling
                 handleClosePop function, which sets selectedItem back to null */}
@@ -98,7 +115,6 @@ const modalStyle = {
   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
 };
 
-// Styling for the "Close" button inside the modal.
 const buttonStyle = {
   marginTop: '1.5rem',
   padding: '0.5rem 1.5rem',
@@ -107,4 +123,26 @@ const buttonStyle = {
   border: 'none',
   borderRadius: '6px',
   cursor: 'pointer'
+};
+//styling for action button
+const actionButtonStyle = {
+  padding: '0.5rem 1.5rem',
+  backgroundColor: '#3b82f6',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '6px',
+  cursor: 'pointer',
+  fontWeight: '600',
+};
+
+// Styling for the "Close" button inside the modal.
+
+const closeButtonStyle = {
+  padding: '0.5rem 1.5rem',
+  backgroundColor: '#ff4b5c',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '6px',
+  cursor: 'pointer',
+  fontWeight: '600',
 };
