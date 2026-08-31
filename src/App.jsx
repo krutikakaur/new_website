@@ -40,7 +40,8 @@ export default function App() {
   const handleGoToPage = (pageUrl) => {
     if (pageUrl) {
       window.location.href = pageUrl;
-    }
+    } 
+  };
   };
   
 return (
