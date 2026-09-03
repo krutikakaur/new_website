@@ -15,7 +15,7 @@ const popUpData = { //store the possible clickable items and their descriptions
 
   sticky_note: {
     title: 'About Me',
-      description: 'filler
+      description: 'filler'
   },
   cube068: {
     title: 'Technical Projects',
