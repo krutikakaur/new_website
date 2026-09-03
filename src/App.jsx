@@ -7,21 +7,21 @@ const popUpData = { //store the possible clickable items and their descriptions
   miffy: {
     title: 'Personal Art Projects!',
     description: 'filler'
-  };
+  },
   bookshelf: {
     title: 'Resume/Reach Out!',
     description: 'filler'
-  };
+  },
 
   sticky_note: {
     title: 'About Me',
       description: 'filler
-  };
-
+  },
   cube068: {
     title: 'Technical Projects',
     description: 'filler'
-  };
+  }
+};
   
 export default function App() {
 
