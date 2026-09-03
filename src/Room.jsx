@@ -164,7 +164,7 @@ const { scene } = useGLTF('./room_offical.glb')
     scene.traverse((child) => {
       if (child.isMesh && child.material && getMatchedTarget(child) === target) {
         child.material.emissive.set('#18106a');
-        child.material.emissiveIntensity = 5.0;
+        child.material.emissiveIntensity = 4.0;
       }
     });
   };
