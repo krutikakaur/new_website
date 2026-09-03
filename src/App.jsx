@@ -45,7 +45,7 @@ return (
   <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
 
     {/* The 3D viewport */}
-    <Canvas shadows camera={{ position: [0, 2, 5], fov: 45 }}>
+    <Canvas shadows camera={{ position: [10, 2, 10], fov: 45 }}>
       <Room onPopClick={handleOpenPop} />
     </Canvas>
 
@@ -72,16 +72,16 @@ return (
 // and centers whatever's inside it (the modal box) both horizontally
 // and vertically using flexbox.
 const overlayStyle = {
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
-  width: '100%',
-  height: '100%',
+  width: '100vw',
+  height: '100vh',
   backgroundColor: 'rgba(0, 0, 0, 0.75)', // black at 75% opacity
   display: 'flex',
   justifyContent: 'center', // center horizontally
   alignItems: 'center',     // center vertically
-  zIndex: 10, // makes sure this sits ABOVE the 3D canvas, not behind it
+  zIndex: 100, // makes sure this sits ABOVE the 3D canvas, not behind it
 };
 
 // The actual visible popup box: dark background, white text,
@@ -93,7 +93,9 @@ const modalStyle = {
   padding: '2rem',
   borderRadius: '12px',
   textAlign: 'center',
-  maxWidth: '500px',
+  maxWidth: '1000px',
+  width: '800px',
+  height: '500px',
   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
 };
 
