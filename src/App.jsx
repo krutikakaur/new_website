@@ -7,17 +7,14 @@ const popUpData = { //store the possible clickable items and their descriptions
   miffy: {
     title: 'Personal Art Projects!',
     description: 'filler',
-    page: "art.html" },
   bookshelf: {
     title: 'Resume/Reach Out!',
     description: 'filler'},
   sticky_note: {
     title: 'About Me',
-    description: 'filler'},
   cube068: {
     title: 'Technical Projects',
     description: 'filler',
-    page: "projects.html"},
   };
   
 export default function App() {
@@ -36,12 +33,7 @@ export default function App() {
   const currentItem = popUpData[selectedItem] || {
     title: 'None Selected',
     description: 'not found' };
-  
-  const handleGoToPage = (pageUrl) => {
-    if (pageUrl) {
-      window.location.href = pageUrl;
-    } 
-  };
+
   
 return (
   <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
@@ -60,23 +52,12 @@ return (
           <p style={{ marginTop: '1rem', lineHeight: '1.6', color: '#cbd5e1' }}>
             {currentItem.description}
           </p>
-
-          <div style={buttonContainerStyle}>
-            {currentItem.page && (
-              <button
-                onClick={() => handleGoToPage(currentItem.page)}
-                style={actionButtonStyle}
-              >
-                Visit Page
-              </button>
-            )}
             <button onClick={handleClosePop} style={closeButtonStyle}>
               Close
             </button>
           </div>
         </div>
-      </div>
-    )}
+  )}
   </div>
 );
 }
