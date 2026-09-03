@@ -58,7 +58,7 @@ const { scene } = useGLTF('./room_offical.glb')
         } else if (matName === 'miffy') {
           child.material.color.set('#E7E7E7');
           child.material.emissive.set('#FFFFFF');
-          child.material.emissiveIntensity = 1.0;
+          child.material.emissiveIntensity = 0.6;
         } else if (matName === 'clock') {
           child.material.color.set('#E7E7E7');
           child.material.emissive.set('#FFCC94');
@@ -164,7 +164,7 @@ const { scene } = useGLTF('./room_offical.glb')
     scene.traverse((child) => {
       if (child.isMesh && child.material && getMatchedTarget(child) === target) {
         child.material.emissive.set('#18106a');
-        child.material.emissiveIntensity = 4.0;
+        child.material.emissiveIntensity = 5.0;
       }
     });
   };
