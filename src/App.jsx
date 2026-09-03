@@ -6,15 +6,21 @@ import Room from './Room';
 const popUpData = { //store the possible clickable items and their descriptions
   miffy: {
     title: 'Personal Art Projects!',
-    description: 'filler',
+    description: 'filler'
+  };
   bookshelf: {
     title: 'Resume/Reach Out!',
-    description: 'filler'},
+    description: 'filler'
+  };
+
   sticky_note: {
     title: 'About Me',
+      description: 'filler
+  };
+
   cube068: {
     title: 'Technical Projects',
-    description: 'filler',
+    description: 'filler'
   };
   
 export default function App() {
